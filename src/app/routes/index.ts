@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { ProductRoutes } from "../models/product/product.route";
-import { OrderRoutes } from "../models/order/order.route";
+import { ProductRoutes } from "../modules/product/product.route";
+import { OrderRoutes } from "../modules/order/order.route";
 
 const router = Router();
 
