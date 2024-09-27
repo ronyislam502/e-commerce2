@@ -15,7 +15,7 @@ const createOrderIntoDB = async (payload: TOrder) => {
     throw new AppError(httpStatus.BAD_REQUEST, "Insufficient stock");
   }
 
-  const order = await Order.create();
+  const order = await Order.create(payload);
 
   product.inventory.quantity -= payload.quantity;
   product.inventory.inStock = product.inventory.quantity > 0;
