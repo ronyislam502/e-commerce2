@@ -1,12 +1,18 @@
 import express from "express";
+
 import { OderControllers } from "./order.controller";
+import validateRequest from "../../middlewares/validateRequest";
+import { OrderValidations } from "./order.validation";
 
 const router = express.Router();
 
-router.post("/create-order", OderControllers.createOrder);
+router.post(
+  "/create-order",
+  validateRequest(OrderValidations.orderValidationSchema),
+  OderControllers.createOrder
+);
 
 router.get("/", OderControllers.getAllOrders);
 
-router.get("/search", OderControllers.getOrderByEmail);
-
+router.get("/:email", OderControllers.getOrderByEmail);
 export const OrderRoutes = router;

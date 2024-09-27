@@ -29,7 +29,7 @@ const inventorySchema = new Schema<TInventory>({
   },
 });
 
-const productSchema = new Schema<TProduct>({
+const productSchema = new Schema<TProduct, ProductModel>({
   name: {
     type: String,
     required: [true, "Name is required"],

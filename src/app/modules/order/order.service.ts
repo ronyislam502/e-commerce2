@@ -1,8 +1,8 @@
 import httpStatus from "http-status";
 import AppError from "../../errors/AppError";
+import { Product } from "../product/product.model";
 import { TOrder } from "./order.interface";
 import { Order } from "./order.model";
-import { Product } from "../product/product.model";
 
 const createOrderIntoDB = async (payload: TOrder) => {
   const product = await Product.findById(payload.productId);
@@ -15,13 +15,13 @@ const createOrderIntoDB = async (payload: TOrder) => {
     throw new AppError(httpStatus.BAD_REQUEST, "Insufficient stock");
   }
 
-  const order = await Order.create();
+  const order = await Order.create(payload);
+  console.log(order);
 
   product.inventory.quantity -= payload.quantity;
   product.inventory.inStock = product.inventory.quantity > 0;
 
   await product.save();
-
   return order;
 };
 
