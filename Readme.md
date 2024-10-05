@@ -39,3 +39,36 @@
 ```
 
 <br>
+
+**Step - 5:**  clone this repository on your device with this command line:
+
+```
+      git clone https://github.com/ronyislam502/e-commerce2.git
+```
+
+<br>
+
+**Step - 6:**  After cloning the repository install all necessary packages with:
+```
+npm install
+
+```
+
+<br>
+
+**Step - 7:** Now set the necessary variables, create a '.env' file in the root folder of this project and set the value of those properties:
+
+```
+      PORT
+    DATABASE_URL
+```
+
+<br>
+
+**Step - 8:** After successfully installing all packages open the terminal from this project and run:
+
+```
+      npm run start:dev
+```
+
+<br>
