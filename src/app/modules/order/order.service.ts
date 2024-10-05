@@ -16,10 +16,6 @@ const createOrderIntoDB = async (payload: TOrder) => {
   }
 
   const order = await Order.create(payload);
-<<<<<<< HEAD
-  console.log(order);
-=======
->>>>>>> f30ae6320969b0681da6796b9de0e080d4da862b
 
   product.inventory.quantity -= payload.quantity;
   product.inventory.inStock = product.inventory.quantity > 0;
